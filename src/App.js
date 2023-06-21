@@ -25,12 +25,25 @@ const App = () => {
       text: todo.trim(),
       completed: false,
     };
-    if (newTodo.text.length > 0 ) {
-        setTodos([...todos].concat(newTodo));
-        setTodo("");
+    if (newTodo.text.length == 0 ) {
+      alert("Please enter a Task");
+      setTodo("");
     } else {
-        alert("Enter Valid Task");
+      let entry = newTodo.text.split(" ");
+      let entry_word = entry[0].split("");
+      let n = 0;
+      for (let i = 0; i < entry_word.length; i++) {
+        if (isNaN(entry_word[i]) == false) {
+          n++;
+        }
+      }
+      if (n > 0) {
+        alert("Task is not valid");
         setTodo("");
+      } else {
+        setTodos([...todos].concat(newTodo));
+        setTodo("")
+      }
     }
   }
   function deleteTodo(id) {
