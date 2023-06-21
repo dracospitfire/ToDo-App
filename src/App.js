@@ -97,14 +97,14 @@ const App = () => {
                 ) : (
                   <div>{todo.text}</div>
                 )}
-              </div>
-              <div className="todo-actions">
+                <div className="todo-actions">
                 {todo.id === todoEditing ? (
                   <button onClick={() => submitEdits(todo.id)}>Submit Edits</button>
                 ) : (
                   <button onClick={() => setTodoEditing(todo.id)}>Edit</button>
                 )}
                 <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+              </div>
               </div>
             </div>
           ))}
