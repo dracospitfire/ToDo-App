@@ -25,7 +25,7 @@ const App = () => {
       text: todo.trim(),
       completed: false,
     };
-    if (newTodo.text.length == 0 ) {
+    if (newTodo.text.length === 0 ) {
       alert("Please enter a Task");
       setTodo("");
     } else {
@@ -33,7 +33,7 @@ const App = () => {
       let entry_word = entry[0].split("");
       let n = 0;
       for (let i = 0; i < entry_word.length; i++) {
-        if (isNaN(entry_word[i]) == false) {
+        if (isNaN(entry_word[i]) === false) {
           n++;
         }
       }
@@ -42,7 +42,7 @@ const App = () => {
         setTodo("");
       } else {
         setTodos([...todos].concat(newTodo));
-        setTodo("")
+        setTodo("");
       }
     }
   }
@@ -97,14 +97,14 @@ const App = () => {
                 ) : (
                   <div>{todo.text}</div>
                 )}
-                <div className="todo-actions">
+              </div>
+              <div className="todo-actions">
                 {todo.id === todoEditing ? (
-                  <button onClick={() => submitEdits(todo.id)}>Submit Edits</button>
+                  <button onClick={() => submitEdits(todo.id)}>Submit</button>
                 ) : (
                   <button onClick={() => setTodoEditing(todo.id)}>Edit</button>
                 )}
                 <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-              </div>
               </div>
             </div>
           ))}
